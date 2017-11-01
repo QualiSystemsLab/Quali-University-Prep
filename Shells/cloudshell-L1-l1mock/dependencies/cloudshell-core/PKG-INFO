@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: cloudshell-core
+Version: 2.1.153
+Summary: Core package for CloudShell Python orchestration and automation. This package contains commoncode for CloudShell packages, including logging, basic interfaces and other utilities
+Home-page: https://github.com/QualiSystems/cloudshell-core
+Author: Quali
+Author-email: info@quali.com
+License: Apache 2.0
+Description: UNKNOWN
+Keywords: sandbox cloud cmp cloudshell
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: Apache Software License

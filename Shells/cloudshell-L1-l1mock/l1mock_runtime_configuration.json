@@ -1,0 +1,7 @@
+{
+  "driver_variable": {
+    "number_of_blades": 2,
+	"ports_per_blade": 10,
+    "operation_duration_sec": 2
+  }
+}

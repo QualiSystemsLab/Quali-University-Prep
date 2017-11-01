@@ -1,0 +1,4 @@
+<Responses xmlns="http://schemas.qualisystems.com/ResourceManagement/DriverCommandResult.xsd" Success="true">
+    <ErrorCode/>
+    <Log>No need for Sync</Log>
+</Responses>

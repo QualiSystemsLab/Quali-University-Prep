@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Responses xmlns="http://schemas.qualisystems.com/ResourceManagement/DriverCommandResult.xsd" Success="false">
+    <ErrorCode>0</ErrorCode>
+    <Log>Failed to parse the xml</Log>
+</Responses>

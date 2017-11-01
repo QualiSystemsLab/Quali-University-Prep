@@ -1,0 +1,7 @@
+<CommandResponse CommandName="command_name" Success="command_state" CommandId="command_id">
+    <Error/>
+    <Log/>
+    <Timestamp>dd.mm.yyyy hh:mm:ss</Timestamp>
+    <ResponseInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ResourceInfoResponse"/>
+</CommandResponse>
+

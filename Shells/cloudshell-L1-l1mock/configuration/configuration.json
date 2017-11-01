@@ -1,0 +1,35 @@
+{
+  "common_variable": {
+    "driver_name": "L1mock",
+    "driver_module": ["l1mock.driver_handler", "L1mockDriverHandler"],
+    "connection_type": "tcp",
+    "connection_port": 53058,
+    "device_prompt": "=>",
+    "server_timeout": 10,
+    "runtime_configuration": "l1mock_runtime_configuration.json"
+  },
+
+  "cli_variable": {
+    "ssh": ["common.cli.ssh_session", "SSHSession"],
+    "telnet": ["common.cli.telnet_session", "TelnetSession"],
+    "tcp": ["common.cli.tcp_session", "TCPSession"]
+  },
+
+  "driver_variable": {
+    "resource_name": [
+      "Switch {0}",
+      "Blade {0}",
+      "Port {0}"
+    ],
+    "resource_family_name": [
+      "L1 Switch",
+      "L1 Switch Blade",
+      "L1 Switch Port"
+    ],
+    "resource_model_name": [
+      "L1Mock",
+      "L1Mock Blade",
+      "L1Mock Port"
+    ]
+  }
+}
