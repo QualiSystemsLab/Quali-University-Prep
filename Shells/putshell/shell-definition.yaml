@@ -1,0 +1,51 @@
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+metadata:
+  template_name: Putshell
+  template_author: Anonymous
+  template_version: 0.1.0
+  template_icon: shell-icon.png
+
+description: >
+  TOSCA based resource shell
+
+imports:
+  - cloudshell_standard: cloudshell_resource_standard_2_0_1.yaml
+
+node_types:
+
+  vendor.resource.Putshell:
+    derived_from: cloudshell.nodes.GenericResource
+    properties:
+      CPU Load:
+        type: string
+        default: 0
+        description:
+      Memory Load:
+        type: string
+        default: 0
+        description:
+      HDD Load:
+        type: string
+        default: 0
+        description:
+    capabilities:
+      auto_discovery_capability:
+        type: cloudshell.capabilities.AutoDiscovery
+        properties:        
+          enable_auto_discovery:
+            type: boolean
+            default: true
+          auto_discovery_description:
+            type: string
+            default: Gets the resource structure
+          inventory_description:
+            type: string
+            default: A mock resource for learning purposes
+    artifacts:
+      icon:
+        file: shell-icon.png
+        type: tosca.artifacts.File
+      driver:
+        file: PutshellDriver.zip
+        type: tosca.artifacts.File
