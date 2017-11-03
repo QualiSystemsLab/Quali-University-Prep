@@ -1,8 +1,5 @@
-<Driver Description="Describe the purpose of your CloudShell shell" MainClass="driver.TrafficshellDriver" Name="TrafficshellDriver" Version="1.0.0">
+<Driver Description="A traffic generator mock driver for learning purposes" MainClass="driver.TrafficshellDriver" Name="TrafficshellDriver" Version="1.0.0">
     <Layout>
-         <Category Name="Hidden Commands">
-            <Command Description="" DisplayName="Orchestration Save" Name="orchestration_save" />
-            <Command Description="" DisplayName="Orchestration Restore" Name="orchestration_restore" />
-        </Category>
+         <Command Description="" DisplayName="Run Traffic" Name="start_traffic" />
     </Layout>
 </Driver>
