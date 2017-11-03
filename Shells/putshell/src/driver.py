@@ -7,7 +7,6 @@ from cloudshell.api.cloudshell_api import CloudShellAPISession as Cs_Api, \
 from cloudshell.core.logger.qs_logger import get_qs_logger
 import random
 import time
-import os
 
 
 class PutshellDriver (ResourceDriverInterface):
