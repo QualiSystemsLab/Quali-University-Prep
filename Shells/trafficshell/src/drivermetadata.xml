@@ -1,5 +1,5 @@
 <Driver Description="A traffic generator mock driver for learning purposes" MainClass="driver.TrafficshellDriver" Name="TrafficshellDriver" Version="1.0.0">
     <Layout>
-         <Command Description="" DisplayName="Run Traffic" Name="start_traffic" />
+         <Command Description="" DisplayName="Start Traffic" Name="start_traffic" />
     </Layout>
 </Driver>
