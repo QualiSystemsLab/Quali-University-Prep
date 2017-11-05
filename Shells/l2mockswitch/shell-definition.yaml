@@ -29,7 +29,7 @@ node_types:
         properties:
           enable_auto_discovery:
             type: boolean
-            default: true
+            default: false
           auto_discovery_description:
             type: string
             default: Describe the auto discovery
