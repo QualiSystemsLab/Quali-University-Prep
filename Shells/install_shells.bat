@@ -4,3 +4,6 @@ cd ..
 cd trafficshell
 shellfoundry install
 cd ..
+cd l2mockswitch
+shellfoundry install
+cd ..
