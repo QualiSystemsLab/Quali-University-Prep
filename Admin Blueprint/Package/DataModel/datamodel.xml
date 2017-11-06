@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataModelInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
+  <Attributes>
+    <AttributeInfo Name="User" Type="String" DefaultValue="" Description="" IsReadOnly="false">
+      <Rules>
+        <Rule Name="Configuration" />
+      </Rules>
+    </AttributeInfo>
+    <AttributeInfo Name="Password" Type="Password" DefaultValue="3M3u7nkDzxWb0aJ/IZYeWw==" Description="" IsReadOnly="false">
+      <Rules>
+        <Rule Name="Configuration" />
+      </Rules>
+    </AttributeInfo>
+	<AttributeInfo xsi:type="LookupAttributeDetails" Name="Protocol Type" Type="Lookup" DefaultValue="Transparent" IsReadOnly="true">
+      <Rules>
+        <Rule Name="Configuration" />
+        <Rule Name="Setting" />
+        <Rule Name="Constant Capability" />
+        <Rule Name="Available For Abstract Resources" />
+      </Rules>
+      <LookupValues>
+        <LookupValue NumericValue="0" StringValue="Transparent" />
+        <LookupValue NumericValue="1" StringValue="Fibre Channel" />
+        <LookupValue NumericValue="2" StringValue="Ethernet" />
+        <LookupValue NumericValue="3" StringValue="SONET" />
+        <LookupValue NumericValue="4" StringValue="10G Ethernet" />
+        <LookupValue NumericValue="5" StringValue="Infiniband" />
+        <LookupValue NumericValue="6" StringValue="T-Carrier" />
+        <LookupValue NumericValue="7" StringValue="E-Carrier" />
+        <LookupValue NumericValue="8" StringValue="40G Ethernet" />
+        <LookupValue NumericValue="9" StringValue="1G Ethernet" />
+      </LookupValues>
+    </AttributeInfo>
+  </Attributes>
+  <ResourceFamilies>
+    <ResourceFamily Name="PatchPanel" IsMappableContainer="true" Description="" SupportsMulticastMapping="true" SupportsLoopbackMapping="true" IsSearchable="true" ResourceType="Resource" AllowRemoteConnection="true">
+      <AttachedAttributes>
+        <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Password" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+      </AttachedAttributes>
+      <AttributeValues>
+        <AttributeValue Name="User" Value="" />
+        <AttributeValue Name="Password" Value="3M3u7nkDzxWb0aJ/IZYeWw==" />
+      </AttributeValues>
+      <Models>
+        <ResourceModel Name="Generic PatchPanel" Description="" SupportsConcurrentCommands="false">
+          <AttachedAttributes />
+          <AttributeValues>
+            <AttributeValue Name="User" Value="" />
+            <AttributeValue Name="Password" Value="3M3u7nkDzxWb0aJ/IZYeWw==" />
+          </AttributeValues>
+          <ParentModels />
+          <Drivers>
+            <DriverName>Patch Panel Driver</DriverName>
+          </Drivers>
+          <Scripts />
+        </ResourceModel>
+      </Models>
+      <Categories />
+    </ResourceFamily>
+	<ResourceFamily Name="Panel Jack" IsMappable="true" IsConnectable="true" IsLockedByDefault="true" Description="" IsSearchable="true" ResourceType="Resource" AllowRemoteConnection="false">
+      <AttachedAttributes />
+      <AttributeValues />
+      <Models>
+        <ResourceModel Name="Generic Jack" Description="" SupportsConcurrentCommands="false">
+          <AttachedAttributes>
+            <AttachedAttribute Name="Protocol Type" IsOverridable="true" IsLocal="false">
+              <AllowedValues>
+                <AllowedValue>Transparent</AllowedValue>
+              </AllowedValues>
+            </AttachedAttribute>
+          </AttachedAttributes>
+          <AttributeValues>
+            <AttributeValue Name="Protocol Type" Value="Transparent" />
+          </AttributeValues>
+          <ParentModels>
+            <ParentModelName>Generic PatchPanel</ParentModelName>
+          </ParentModels>
+          <Drivers />
+          <Scripts />
+        </ResourceModel>
+      </Models>
+      <Categories />
+    </ResourceFamily>
+  </ResourceFamilies>
+  <DriverDescriptors>
+    <DriverDescriptor Name="Patch Panel Driver" DriverType="L1SwitchDriver" />
+    <DriverDescriptor Name="Python Setup &amp; Teardown" Description="This driver is used for running Python scripts in the environment setup and teardown. To use this driver, make sure you select a suitable setup and/or teardown script." DriverType="TestShellDriver" />
+  </DriverDescriptors>
+  <ScriptDescriptors>
+    <ScriptDescriptor Name="Admin Setup Script" CategoryName="Hidden Commands" Alias="Setup script">
+      <ScriptInputs />
+    </ScriptDescriptor>
+  </ScriptDescriptors>
+</DataModelInfo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Patch Panel - Training" FolderFullPath="" Address="1.1.1.1" ModelName="Generic PatchPanel" Driver="Patch Panel Driver" xmlns="http://schemas.qualisystems.com/ResourceManagement/ResourceSchema.xsd">
+  <Attributes>
+    <Attribute Name="User" Value="" />
+    <Attribute Name="Password" Value="3M3u7nkDzxWb0aJ/IZYeWw==" />
+  </Attributes>
+  <ChildResources />
+  <Connections />
+</ResourceInfo>

@@ -1,0 +1,2 @@
+cloudshell-automation-api>=8.1,<8.2
+cloudshell-rest-api>=8.2.1.0,<8.3
