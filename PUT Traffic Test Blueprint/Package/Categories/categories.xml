@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CategoryList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.qualisystems.com/ResourceManagement/CategorySchema.xsd">
+  <Category Name="Performance" Description="Performance tests" Catalog="Environment" ImagePath="Performance(2LQDDUDF).png">
+    <ChildCategories />
+  </Category>
+  <Category Name="Security" Description="Security Tests" Catalog="Environment" ImagePath="Security(QX6MYJVT).png">
+    <ChildCategories />
+  </Category>
+  <Category Name="Integration" Description="Integration tests" Catalog="Environment" ImagePath="Integration(X5M1V7RY).png">
+    <ChildCategories />
+  </Category>
+</CategoryList>

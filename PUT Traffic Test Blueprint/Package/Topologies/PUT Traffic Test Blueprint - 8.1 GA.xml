@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TopologyInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Details Name="PUT Traffic Test Blueprint - 8.1 GA" Alias="PUT Traffic Test Blueprint - 8.1 GA" Driver="Python Setup &amp; Teardown" SetupDuration="5" TeardownDuration="5" Public="false" ImageName="PUT Traffic Test Blueprint - 8.1 GA.png" DefaultDuration="120">
+    <Description>Performance testing blueprint for PUT (product under test) version 2.0.
+The Blueprint consists of orchestration commands, and automated PUT and Traffic Generator elements.</Description>
+    <Instructions>&lt;iframe src="/PUTInstructionsFiles/Instructions.html" scrolling="yes" height="100%" width="100%" frameborder="0"&gt;&lt;/iframe&gt;</Instructions>
+    <Categories>
+      <Category Name="Integration" SubCategory="" />
+      <Category Name="Security" SubCategory="" />
+      <Category Name="Performance" SubCategory="" />
+    </Categories>
+    <Scripts>
+      <Script Name="Setup Training" />
+      <Script Name="Run Tests" />
+      <Script Name="Teardown Training" />
+    </Scripts>
+    <Diagram Zoom="0.9" NodeSize="Medium" />
+  </Details>
+  <AbstractResources>
+    <AbstractResource PositionX="650.5" PositionY="397" Name="Product Under Test*" Shared="false" ResourceFamily="CS_GenericResource">
+      <Quantity Published="false" Value="1" />
+      <ResourceModels Published="false">
+        <ResourceModel>Putshell</ResourceModel>
+      </ResourceModels>
+      <Attributes>
+        <Requirement Name="CS_GenericResource.Model" Published="false">
+          <Value>Model 1</Value>
+        </Requirement>
+        <Requirement Name="CS_GenericResource.Vendor" Published="false">
+          <Value>Big Vendor</Value>
+        </Requirement>
+      </Attributes>
+      <SubResources>
+        <AbstractResource Name="Port 1*" Shared="false" ResourceFamily="CS_Port">
+          <Quantity Published="false" Value="1" />
+          <ResourceModels Published="false">
+            <ResourceModel>Putshell.ResourcePort</ResourceModel>
+          </ResourceModels>
+        </AbstractResource>
+        <AbstractResource Name="Port 2*" Shared="false" ResourceFamily="CS_Port">
+          <Quantity Published="false" Value="1" />
+          <ResourceModels Published="false">
+            <ResourceModel>Putshell.ResourcePort</ResourceModel>
+          </ResourceModels>
+        </AbstractResource>
+      </SubResources>
+    </AbstractResource>
+    <AbstractResource PositionX="650.5" PositionY="104" Name="Traffic Generator*" Shared="false" ResourceFamily="CS_GenericResource">
+      <Quantity Published="false" Value="1" />
+      <ResourceModels Published="false">
+        <ResourceModel>Trafficshell</ResourceModel>
+      </ResourceModels>
+      <Attributes>
+        <Requirement Name="CS_GenericResource.Model" Published="false">
+          <Value>Model X</Value>
+        </Requirement>
+        <Requirement Name="CS_GenericResource.Vendor" Published="false">
+          <Value>Major Vendor</Value>
+        </Requirement>
+      </Attributes>
+      <SubResources>
+        <AbstractResource Name="Port 1*" Shared="false" ResourceFamily="CS_Port">
+          <Quantity Published="false" Value="1" />
+          <ResourceModels Published="false">
+            <ResourceModel>Trafficshell.ResourcePort</ResourceModel>
+          </ResourceModels>
+        </AbstractResource>
+        <AbstractResource Name="Port 2*" Shared="false" ResourceFamily="CS_Port">
+          <Quantity Published="false" Value="1" />
+          <ResourceModels Published="false">
+            <ResourceModel>Trafficshell.ResourcePort</ResourceModel>
+          </ResourceModels>
+        </AbstractResource>
+      </SubResources>
+    </AbstractResource>
+  </AbstractResources>
+  <Apps />
+  <Routes>
+    <Route Source="Traffic Generator*/Port 1*" Target="Product Under Test*/Port 1*" MaxHops="2" Direction="Bi" Shared="false" />
+    <Route Source="Traffic Generator*/Port 2*" Target="Product Under Test*/Port 2*" MaxHops="2" Direction="Bi" Shared="false" />
+  </Routes>
+</TopologyInfo>

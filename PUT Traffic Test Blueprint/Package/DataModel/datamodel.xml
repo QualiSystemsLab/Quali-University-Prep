@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataModelInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
+  <Attributes />
+  <ResourceFamilies />
+  <DriverDescriptors>
+    <DriverDescriptor Name="Python Setup &amp; Teardown" Description="This driver is used for running Python scripts in the environment setup and teardown. To use this driver, make sure you select a suitable setup and/or teardown script." DriverType="TestShellDriver" />
+  </DriverDescriptors>
+  <ScriptDescriptors>
+    <ScriptDescriptor Name="Setup Training" CategoryName="Hidden Commands" Version="1.0" Alias="Setup script">
+      <ScriptInputs />
+    </ScriptDescriptor>
+    <ScriptDescriptor Name="Run Tests" Description="Runs the Load test using the shell commands of both resources. Writes the output to the Output pane." Alias="Run Tests">
+      <ScriptInputs />
+    </ScriptDescriptor>
+    <ScriptDescriptor Name="Teardown Training" CategoryName="Hidden Commands" Version="1.0" Alias="Teardown script">
+      <ScriptInputs />
+    </ScriptDescriptor>
+  </ScriptDescriptors>
+</DataModelInfo>
