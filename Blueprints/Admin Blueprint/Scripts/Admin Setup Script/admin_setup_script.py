@@ -58,7 +58,7 @@ def execute():
 
     # then create domain admins group
     try:
-        api.AddNewGroup(groupName='Domain Admins', groupRole='Domain admins')
+        api.AddNewGroup(groupName='Domain Admins', groupRole='DomainAdmin')
     except CloudShellAPIError as ex:
         pass  # probably group exists already
 
@@ -116,6 +116,7 @@ def execute():
         while added_count < domain_admins_count:
             try:
                 api.AddNewUser('dadmin' + str(a), 'dadmin' + str(a), '', isActive=True, isAdmin=False)
+                api.AddUsersToGroup(['dadmin' + str(a)], 'Domain Admins')
                 added_count += 1
                 dom_admins_created.append('dadmin' + str(a))
             except:
