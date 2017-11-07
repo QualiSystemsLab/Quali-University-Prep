@@ -55,6 +55,7 @@ del l2mockswitch.zip
 cd..\..\..\..
 del "Shells\putshell\PutshellDriver.zip"
 del "Shells\Trafficshell\Trafficshelldriver.zip"
+del "Blueprints\Admin Blueprint\Package\topology scripts\Admin Setup Script.zip"
 
 echo done
 
