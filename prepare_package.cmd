@@ -1,4 +1,4 @@
-rem echo off
+echo off
 
 echo pack shells
 cd Shells
@@ -30,6 +30,7 @@ copy "Run Tests.py" "..\..\Package\Topology Scripts" /y
 cd..\..\..\..
 cd "Blueprints\PUT Traffic Test Blueprint\Package"
 del *.zip
+del "..\..\..\Blueprints\Admin Blueprint\Scripts\Admin Setup Script\PUT Traffic Test Blueprint.zip"
 "c:\Program Files\7-Zip\7z.exe" a "..\..\..\Blueprints\Admin Blueprint\Scripts\Admin Setup Script\PUT Traffic Test Blueprint.zip" *
 cd..\..\..
 
@@ -44,4 +45,16 @@ cd "Blueprints\Admin Blueprint\Package"
 del *.zip
 "c:\Program Files\7-Zip\7z.exe" a "..\..\..\Packages\Admin Blueprint.zip" *
 cd..\..\..
+
+echo deleting files used in the process
+cd "Blueprints\Admin Blueprint\Scripts\Admin Setup Script"
+del "PUT Traffic Test Blueprint.zip"
+del putshell.zip
+del trafficshell.zip
+del l2mockswitch.zip
+cd..\..\..\..
+del "Shells\putshell\PutshellDriver.zip"
+del "Shells\Trafficshell\Trafficshelldriver.zip"
+
+echo done
 
