@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TopologyInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Details Name="Admin Preperations" Alias="Admin Preperations" Driver="Python Setup &amp; Teardown" SetupDuration="3" Public="false" ImageName="Admin Preperations.png" DefaultDuration="60">
+    <Description>This blueprint helps with the University preparations steps</Description>
     <Categories />
     <Scripts>
       <Script Name="Admin Setup Script" />
@@ -13,6 +14,7 @@
   <Apps />
   <Inputs>
     <GlobalInput Name="Number of Sys Admins" DefaultValue="0" Description="How many system administrators to create?" Type="Numeric" />
+    <GlobalInput Name="Number of Domain Admins" DefaultValue="0" Description="How many domain administrators to create?" Type="Numeric"/>
     <GlobalInput Name="Number of Users" DefaultValue="0" Description="How many regular users to create?" Type="Numeric" />
   </Inputs>
 </TopologyInfo>

@@ -45,10 +45,20 @@ def execute():
     if 'Number of Users' in inputs:
         users_count = int(inputs['Number of Users'])
 
+    domain_admins_count = 0
+    if 'Number of Domain Admins' in inputs:
+        domain_admins_count = int(inputs['Number of Domain Admins'])
+
     # create domains and assign users group to them
     # first create users group
     try:
         api.AddNewGroup(groupName='Users Group', groupRole='Regular')
+    except CloudShellAPIError as ex:
+        pass  # probably group exists already
+
+    # then create domain admins group
+    try:
+        api.AddNewGroup(groupName='Domain Admins', groupRole='Domain admins')
     except CloudShellAPIError as ex:
         pass  # probably group exists already
 
@@ -62,10 +72,21 @@ def execute():
             # assign networking service category to the new domains
             import_package(connectivity, domain, tempdir + "\\Networking Service Category.zip")
             if domain == 'Test Team NY':
+                api.AddGroupsToDomain(domainName=domain, groupNames=['Domain Admins'])
                 import_package(connectivity, domain, tempdir + "\\Apps for testing service category.zip")
         except CloudShellAPIError as ex:
             pass  # probably domain exists already
     api.WriteMessageToReservationOutput(res_id, 'Domains created: ' + ','.join(domains_created))
+
+    # import the put blueprint
+    try:
+        api.WriteMessageToReservationOutput(res_id, 'Importing "PUT Traffic Test Blueprint"')
+        import_package(connectivity, 'Global', tempdir + "\\PUT Traffic Test Blueprint.zip")
+        api.AddTopologiesToDomain('Test Team NY', ['PUT Traffic Test'])
+        api.WriteMessageToReservationOutput(res_id, 'Importing "PUT Traffic Test Blueprint" complete')
+    except:
+        api.WriteMessageToReservationOutput(res_id, 'Importing "PUT Traffic Test Blueprint" failed')
+        pass
 
     # create users/admins
     groups = None
@@ -85,6 +106,23 @@ def execute():
             a += 1
         api.WriteMessageToReservationOutput(res_id, 'Admins created: ' + ','.join(admins_created))
 
+    if domain_admins_count > 0:
+        if groups is None:
+            groups = api.GetGroupsDetails()
+        dom_admin_group = [g for g in groups.Groups if g.Name == "Domain Admins"][0]
+        a = len(dom_admin_group.Users) + 1
+        added_count = 0
+        dom_admins_created = []
+        while added_count < domain_admins_count:
+            try:
+                api.AddNewUser('dadmin' + str(a), 'dadmin' + str(a), '', isActive=True, isAdmin=False)
+                added_count += 1
+                dom_admins_created.append('dadmin' + str(a))
+            except:
+                pass
+            a += 1
+        api.WriteMessageToReservationOutput(res_id, 'Domain Admins created: ' + ','.join(dom_admins_created))
+
     if users_count > 0:
         api.WriteMessageToReservationOutput(res_id, 'Creating users and resources, this might take a while...')
         if groups is None:
@@ -93,6 +131,7 @@ def execute():
         a = len(users_group.Users) + 1
         added_count = 0
         users_created = []
+        l2_resource_created = False
         while added_count < users_count:
             try:
                 api.AddNewUser('user' + str(a), 'user' + str(a), '', isActive=True, isAdmin=False)
@@ -147,15 +186,23 @@ def execute():
                 # create L2 mock switch if needed
                 l2_training = 'L2 Mock Switch - Training'
                 try:
-                    api.CreateResource(resourceFamily='CS_Switch', resourceModel='L2Mockswitch',
-                                       resourceName=l2_training, resourceAddress='1.2.3.4',
-                                       folderFullPath='', parentResourceFullPath='',
-                                       resourceDescription='A fake resource for training')
-                    api.UpdateResourceDriver(l2_training, 'L2Mockswitch')
-                    api.CreateResource(resourceFamily='CS_Chassis', resourceModel='L2Mockswitch.GenericChassis',
-                                       resourceName='Chassis1', resourceAddress='1',
-                                       folderFullPath='', parentResourceFullPath=l2_training,
-                                       resourceDescription='')
+                    if l2_resource_created == False:
+                        try:
+                            l2 = api.GetResourceDetails(l2_training)
+                            l2_resource_created = True
+                        except:
+                            pass
+
+                    if l2_resource_created == False:
+                        api.CreateResource(resourceFamily='CS_Switch', resourceModel='L2Mockswitch',
+                                           resourceName=l2_training, resourceAddress='1.2.3.4',
+                                           folderFullPath='', parentResourceFullPath='',
+                                           resourceDescription='A fake resource for training')
+                        api.UpdateResourceDriver(l2_training, 'L2Mockswitch')
+                        api.CreateResource(resourceFamily='CS_Chassis', resourceModel='L2Mockswitch.GenericChassis',
+                                           resourceName='Chassis1', resourceAddress='1',
+                                           folderFullPath='', parentResourceFullPath=l2_training,
+                                           resourceDescription='')
                 except Exception as ex:
                     api.WriteMessageToReservationOutput(res_id, ex.message)
                     pass # resource probably exists already
