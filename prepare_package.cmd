@@ -30,7 +30,7 @@ copy "Run Tests.py" "..\..\Package\Topology Scripts" /y
 cd..\..\..\..
 cd "Blueprints\PUT Traffic Test Blueprint\Package"
 del *.zip
-"c:\Program Files\7-Zip\7z.exe" a "..\..\Blueprints\Admin Blueprint\Scripts\Admin Setup Script\PUT Traffic Test Blueprint.zip" *
+"c:\Program Files\7-Zip\7z.exe" a "..\..\..\Blueprints\Admin Blueprint\Scripts\Admin Setup Script\PUT Traffic Test Blueprint.zip" *
 cd..\..\..
 
 echo pack admin setup script
@@ -42,6 +42,6 @@ cd..\..\..\..
 echo pack admin blueprint
 cd "Blueprints\Admin Blueprint\Package"
 del *.zip
-"c:\Program Files\7-Zip\7z.exe" a "..\..\Packages\Admin Blueprint.zip" *
+"c:\Program Files\7-Zip\7z.exe" a "..\..\..\Packages\Admin Blueprint.zip" *
 cd..\..\..
 
