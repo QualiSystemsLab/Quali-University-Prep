@@ -1,4 +1,4 @@
-echo off
+rem echo off
 
 echo pack shells
 cd Shells
@@ -13,16 +13,7 @@ cd ..
 cd l2mockswitch
 shellfoundry pack
 copy dist\l2mockswitch.zip "..\..\Admin Blueprint\Scripts\Admin Setup Script\l2mockswitch.zip" /y
-cd ..
-cd "Admin Blueprint\Scripts\Admin Setup Script"
-"c:\Program Files\7-Zip\7z.exe" a "..\..\Package\topology scripts\Admin Setup Script.zip" *
-cd..
-
-echo pack admin blueprint
-cd "Admin Blueprint\Package"
-del *.zip
-"c:\Program Files\7-Zip\7z.exe" a "..\..\Packages\Admin Blueprint.zip" *
-cd..\..
+cd ..\..
 
 echo pack put traffic blueprint
 cd "PUT Traffic Test Blueprint\Scripts"
@@ -39,7 +30,18 @@ copy "Run Tests.py" "..\..\Package\Topology Scripts" /y
 cd..\..\..
 cd "PUT Traffic Test Blueprint\Package"
 del *.zip
-"c:\Program Files\7-Zip\7z.exe" a "..\..\Packages\PUT Traffic Test Blueprint.zip" *
+"c:\Program Files\7-Zip\7z.exe" a "..\..\Admin Blueprint\Scripts\Admin Setup Script\PUT Traffic Test Blueprint.zip" *
 cd..\..
 
+echo pack admin setup script
+cd "Admin Blueprint\Scripts\Admin Setup Script"
+del "..\..\Package\topology scripts\Admin Setup Script.zip"
+"c:\Program Files\7-Zip\7z.exe" a "..\..\Package\topology scripts\Admin Setup Script.zip" *
+cd..\..\..
+
+echo pack admin blueprint
+cd "Admin Blueprint\Package"
+del *.zip
+"c:\Program Files\7-Zip\7z.exe" a "..\..\Packages\Admin Blueprint.zip" *
+cd..\..
 
