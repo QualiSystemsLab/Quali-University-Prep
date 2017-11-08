@@ -82,9 +82,8 @@ def execute():
     try:
         api.WriteMessageToReservationOutput(res_id, 'Importing "PUT Traffic Test Blueprint"')
         import_package(connectivity, 'Global', tempdir + "\\PUT Traffic Test Blueprint.zip")
-        api.AddTopologiesToDomain('Test Team NY', ['PUT Traffic Test'])
         api.WriteMessageToReservationOutput(res_id, 'Importing "PUT Traffic Test Blueprint" complete')
-    except:
+    except Exception as ex:
         api.WriteMessageToReservationOutput(res_id, 'Importing "PUT Traffic Test Blueprint" failed')
         pass
 
@@ -225,6 +224,11 @@ def execute():
             except Exception as ex:
                 api.WriteMessageToReservationOutput(res_id, ex.message)
                 pass
+
+        try:
+            api.AddTopologiesToDomain('Test Team NY', ['PUT Traffic Test'])
+        except:
+            pass
 
         api.WriteMessageToReservationOutput(res_id, 'Users created: ' + ','.join(users_created))
 
