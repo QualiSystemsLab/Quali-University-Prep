@@ -145,9 +145,9 @@ def execute():
             # create resources for this user (PUT+Traffic)
             try:
                 api.CreateFolder('PUTs')
-                rand_rn = ''.join(
-                    random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
-                resource_name = 'Product Under Test - ' + rand_rn
+                #postfix_rn = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+                postfix_rn = str(a-1)
+                resource_name = 'Product Under Test - ' + postfix_rn
                 api.CreateResource('CS_GenericResource', 'Putshell', resource_name, '10.10.10.' + str(a), 'PUTs', '',
                                    'A fake resource for training')
                 api.UpdateResourceDriver(resource_name, 'Putshell')
@@ -155,9 +155,9 @@ def execute():
                 api.AddResourcesToDomain('Test Team NY', [resource_name], True)
 
                 api.CreateFolder('Traffic Generators')
-                rand_tg = ''.join(
-                    random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
-                traffic_name = 'Traffic Generator 2.0 - ' + rand_tg
+                #postfix_tg = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+                postfix_tg = str(a-1)
+                traffic_name = 'Traffic Generator 2.0 - ' + postfix_tg
                 api.CreateResource('CS_GenericResource', 'Trafficshell', traffic_name, '10.10.11.' + str(a), 'Traffic Generators', '',
                                    'A fake resource for training')
                 api.UpdateResourceDriver(traffic_name, 'Trafficshell')
@@ -167,20 +167,20 @@ def execute():
                 # connect devices to the patch panel
                 patch_name = 'Patch Panel - Training'
                 api.CreateResources([
-                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 1 - ' + rand_rn, '1', '', patch_name, ''),
-                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 2 - ' + rand_rn, '2', '',
+                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 1 - ' + postfix_rn, '1', '', patch_name, ''),
+                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 2 - ' + postfix_rn, '2', '',
                                     patch_name, ''),
-                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 1 - ' + rand_tg, '1', '',
+                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 1 - ' + postfix_tg, '1', '',
                                     patch_name, ''),
-                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 2 - ' + rand_tg, '2', '',
+                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 2 - ' + postfix_tg, '2', '',
                                     patch_name, '')
                 ])
                 api.AddResourcesToDomain('Test Team NY', [patch_name], True)
                 api.UpdatePhysicalConnections([
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 1', patch_name + '/Port 1 - ' + rand_rn, 10),
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 2', patch_name + '/Port 2 - ' + rand_rn, 10),
-                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 1', patch_name + '/Port 1 - ' + rand_tg, 10),
-                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 2', patch_name + '/Port 2 - ' + rand_tg, 10)
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 1', patch_name + '/Port 1 - ' + postfix_rn, 10),
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 2', patch_name + '/Port 2 - ' + postfix_rn, 10),
+                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 1', patch_name + '/Port 1 - ' + postfix_tg, 10),
+                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 2', patch_name + '/Port 2 - ' + postfix_tg, 10)
                 ])
 
                 # create L2 mock switch if needed
@@ -210,15 +210,15 @@ def execute():
                 # add L2 ports and connect to PUT
                 chassis_name = l2_training + '/Chassis1'
                 api.CreateResources([
-                    ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 3 - ' + rand_rn, '3', '',
+                    ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 3 - ' + postfix_rn, '3', '',
                                     chassis_name, ''),
-                    ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 4 - ' + rand_rn, '4', '',
+                    ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 4 - ' + postfix_rn, '4', '',
                                     chassis_name, '')
                 ])
                 api.AddResourcesToDomain('Test Team NY', [l2_training], True)
                 api.UpdatePhysicalConnections([
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 3', chassis_name + '/Port 3 - ' + rand_rn, 10),
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 4', chassis_name + '/Port 4 - ' + rand_rn, 10)
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 3', chassis_name + '/Port 3 - ' + postfix_rn, 10),
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 4', chassis_name + '/Port 4 - ' + postfix_rn, 10)
                 ])
 
             except Exception as ex:
