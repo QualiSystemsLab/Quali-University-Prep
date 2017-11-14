@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TopologyInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Details Name="PUT Traffic Test" Alias="PUT Traffic Test" Driver="Python Setup &amp; Teardown" SetupDuration="5" TeardownDuration="5" Public="false" ImageName="PUT Traffic Test.png" DefaultDuration="60">
+  <Details Name="PUT Traffic Test" Alias="PUT Traffic Test" Driver="Python Setup &amp; Teardown" SetupDuration="5" TeardownDuration="5" Public="true" ImageName="PUT Traffic Test.png" DefaultDuration="60">
     <Description>Performance testing blueprint for PUT (product under test) version 2.0.
 The Blueprint consists of orchestration commands, and automated PUT and Traffic Generator elements.</Description>
     <Instructions>&lt;iframe src="/PUTInstructionsFiles/Instructions.html" scrolling="yes" height="100%" width="100%" frameborder="0"&gt;&lt;/iframe&gt;</Instructions>
