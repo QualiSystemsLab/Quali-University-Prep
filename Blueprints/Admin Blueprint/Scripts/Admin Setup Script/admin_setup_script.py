@@ -167,20 +167,20 @@ def execute():
                 # connect devices to the patch panel
                 patch_name = 'Patch Panel - Training'
                 api.CreateResources([
-                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 1 - ' + postfix_rn, '1', '', patch_name, ''),
-                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 2 - ' + postfix_rn, '2', '',
+                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 1 - PUT' + postfix_rn, '1', '', patch_name, ''),
+                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 2 - PUT' + postfix_rn, '2', '',
                                     patch_name, ''),
-                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 1 - ' + postfix_tg, '1', '',
+                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 1 - TG' + postfix_tg, '1', '',
                                     patch_name, ''),
-                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 2 - ' + postfix_tg, '2', '',
+                    ResourceInfoDto('Panel Jack', 'Generic Jack', 'Port 2 - TG' + postfix_tg, '2', '',
                                     patch_name, '')
                 ])
                 api.AddResourcesToDomain('Test Team NY', [patch_name], True)
                 api.UpdatePhysicalConnections([
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 1', patch_name + '/Port 1 - ' + postfix_rn, 10),
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 2', patch_name + '/Port 2 - ' + postfix_rn, 10),
-                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 1', patch_name + '/Port 1 - ' + postfix_tg, 10),
-                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 2', patch_name + '/Port 2 - ' + postfix_tg, 10)
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 1', patch_name + '/Port 1 - PUT' + postfix_rn, 10),
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 2', patch_name + '/Port 2 - PUT' + postfix_rn, 10),
+                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 1', patch_name + '/Port 1 - TG' + postfix_tg, 10),
+                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 2', patch_name + '/Port 2 - TG' + postfix_tg, 10)
                 ])
 
                 # create L2 mock switch if needed
@@ -210,15 +210,15 @@ def execute():
                 # add L2 ports and connect to PUT
                 chassis_name = l2_training + '/Chassis1'
                 api.CreateResources([
-                    ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 3 - ' + postfix_rn, '3', '',
+                    ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 3 - PUT' + postfix_rn, '3', '',
                                     chassis_name, ''),
-                    ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 4 - ' + postfix_rn, '4', '',
+                    ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 4 - PUT' + postfix_rn, '4', '',
                                     chassis_name, '')
                 ])
                 api.AddResourcesToDomain('Test Team NY', [l2_training], True)
                 api.UpdatePhysicalConnections([
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 3', chassis_name + '/Port 3 - ' + postfix_rn, 10),
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 4', chassis_name + '/Port 4 - ' + postfix_rn, 10)
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 3', chassis_name + '/Port 3 - PUT' + postfix_rn, 10),
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 4', chassis_name + '/Port 4 - PUT' + postfix_rn, 10)
                 ])
 
             except Exception as ex:
