@@ -16,7 +16,7 @@
     <Diagram Zoom="0.9" NodeSize="Medium" />
   </Details>
   <AbstractResources>
-    <AbstractResource PositionX="650.5" PositionY="397" Name="Product Under Test*" Shared="false" ResourceFamily="CS_GenericResource">
+    <AbstractResource PositionX="650.5" PositionY="397" Name="Product Under Test*" Shared="true" ResourceFamily="CS_GenericResource">
       <Quantity Published="false" Value="1" />
       <ResourceModels Published="false">
         <ResourceModel>Putshell</ResourceModel>
@@ -44,7 +44,7 @@
         </AbstractResource>
       </SubResources>
     </AbstractResource>
-    <AbstractResource PositionX="650.5" PositionY="104" Name="Traffic Generator*" Shared="false" ResourceFamily="CS_GenericResource">
+    <AbstractResource PositionX="650.5" PositionY="104" Name="Traffic Generator*" Shared="true" ResourceFamily="CS_GenericResource">
       <Quantity Published="false" Value="1" />
       <ResourceModels Published="false">
         <ResourceModel>Trafficshell</ResourceModel>
