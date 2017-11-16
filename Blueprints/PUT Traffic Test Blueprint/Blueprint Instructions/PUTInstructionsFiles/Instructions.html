@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title> PUT Traffic Test Blueprint - 8.0 GA</title>
+	<meta name="generator" content="LibreOffice 5.2.5.1 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<meta name="description" content="Flare HTML5"/>
+	<meta name="keywords" content="Flare, skin, HTML5"/>
+	<meta name="" content=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Google code prettify -->
+	<script src="../../../../../../../../online-convert.com/save/queued/a/0/Resources/Scripts/custom.modernizr.js"></script>
+	<script src="../../../../../../../../online-convert.com/save/queued/a/0/Resources/Scripts/jquery.min.js"></script>
+	<script src="../../../../../../../../online-convert.com/save/queued/a/0/Resources/Scripts/require.min.js"></script>
+	<script src="../../../../../../../../online-convert.com/save/queued/a/0/Resources/Scripts/require.config.js"></script>
+	<script src="../../../../../../../../online-convert.com/save/queued/a/0/Resources/Scripts/foundation.min.js"></script>
+	<script src="../../../../../../../../online-convert.com/save/queued/a/0/Resources/Scripts/plugins.min.js"></script>
+	<script src="../../../../../../../../online-convert.com/save/queued/a/0/Resources/Scripts/MadCapAll.js"></script>
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	<style type="text/css">
+		h2.cjk { font-family: "AR PL SungtiL GB" }
+		h2.ctl { font-family: "Noto Sans Devanagari" }
+		h3.cjk { font-family: "AR PL SungtiL GB" }
+		h3.ctl { font-family: "Noto Sans Devanagari" }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+
+<h1 style="font-family:calibri;">PUT Traffic Test Blueprint</h1>
+<p style="font-family:calibri;">This blueprint runs a load test on a product under test (PUT)
+using a traffic generator resource. 
+</p>
+<p style="font-family:calibri;"><strong>Note</strong>: The product to be tested must contain a
+compatible port. Up to 4 devices can be load tested at once. 
+</p>
+<h2 style="font-family:calibri;">Sandbox Diagram 
+</h2>
+
+<p><img src="Resources/Images/Training-Blueprint.png" width="405px" height="380px"/>
+
+</p>
+<h2 style="font-family:calibri;">Orchestration Commands</h2>
+<ul>
+	<li value="1"/>
+<p  style="font-family:calibri;margin-bottom: 0in"><b>Setup</b>: During
+	the reservation's <b>Setup </b>phase, this command automatically
+	powers on the blueprint's resources and connectivity. The status of
+	the blueprint’s elements is displayed in the <strong>Output </strong>pane.
+		</p>
+	<li value="2"/>
+<p  style="font-family:calibri; margin-bottom: 0in"><strong>Run Load Test</strong>:
+	Initiates the load test by running the <b>Start Traffic</b> command
+	on the traffic generator and then the <b>Health Check</b> command on
+	the PUT. The result of the command execution is displayed in the
+	<b>Output </b>pane. 
+	</p>
+	<li value="3"/>
+<p style="font-family:calibri;margin-bottom: oin"><strong>Teardown</strong>: During the
+	reservation's <b>Teardown </b>phase, this command automatically
+	tears down the blueprint and powers off the blueprint’s resources.
+	The status of the blueprint’s elements is displayed in the <strong>Output
+	</strong>pane. 
+	</p>
+</ul>
+<h2 style="font-family:calibri;">Resource Commands</h2>
+<h3 style="font-family:calibri;">Traffic Generator 
+</h3>
+<ul>
+	<li value="1"/>
+<p style="font-family:calibri; margin: oin"><strong>Start Traffic command</strong>: Generates
+	and transmits 11 packets to the product under test using the PUT's
+	username and password for authentication, then runs a load test on
+	the PUT. The progress and results of the test are displayed in the
+	<b>Output </b>pane. 
+	</p>
+</ul>
+<h3 style="font-family:calibri;">Product Under Test 
+</h3>
+<ul>
+	<li value="1"/>
+<p style="font-family:calibri;"><strong>Health Check command</strong>: Runs a
+	health check on the resource and displays the status of the check in
+	the <b>Output </b>pane. 
+	</p>
+</ul>
+<h2 style="font-family:calibri;">Typical Workflow</h2>
+<ol>
+	<li value="1"/>
+<p style="font-family:calibri;margin-bottom: 0in">Reserve the blueprint.
+		</p>
+	<li value="2"/>
+<p style="font-family:calibri; margin-bottom: 0in">Open the blueprint's
+	<strong>Commands </strong>pane. 
+	</p>
+	<li value="3"/>
+<p style="font-family:calibri; margin-bottom: 0in">Click <strong>Run
+	Tests</strong>. 
+	</p>
+	<li value="4"/>
+<p style="font-family:calibri; margin-bottom: 0in">Open the <b>Output</b> pane
+	to see the test results. 
+	</p>
+	<li value="5"/>
+<p style="font-family:calibri">End the sandbox if you finished using it ahead of
+	time. 
+	</p>
+</ol>
+<p style="font-family:calibri">The resources are powered off and freed up for other users. 
+</p>
+<h2 style="font-family:calibri">Working with CloudShell Sandboxes</h2>
+<p><iframe title="Working with CloudShell Sandboxes" class="youtube-player_0" src="https://www.youtube.com/embed/tKoKPkg_Djc?" frameborder="0" allowfullscreen="1" width="470px" height="264px"></iframe>
+        </p>
+ 
+</p>
+</body>
+</html>

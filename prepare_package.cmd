@@ -34,6 +34,11 @@ del "..\..\..\Blueprints\Admin Blueprint\Scripts\Admin Setup Script\PUT Traffic 
 "c:\Program Files\7-Zip\7z.exe" a "..\..\..\Blueprints\Admin Blueprint\Scripts\Admin Setup Script\PUT Traffic Test Blueprint.zip" *
 cd..\..\..
 
+echo pack put blueprint instructions
+cd "Blueprints\PUT Traffic Test Blueprint\Blueprint Instructions"
+"c:\Program Files\7-Zip\7z.exe" a "..\..\..\Blueprints\Admin Blueprint\Scripts\Admin Setup Script\PUTInstructionsFiles.zip" *
+cd..\..\..
+
 echo pack admin setup script
 cd "Blueprints\Admin Blueprint\Scripts\Admin Setup Script"
 del "..\..\Package\topology scripts\Admin Setup Script.zip"
@@ -52,6 +57,7 @@ del "PUT Traffic Test Blueprint.zip"
 del putshell.zip
 del trafficshell.zip
 del l2mockswitch.zip
+del PUTInstructionsFiles.zip
 cd..\..\..\..
 del "Shells\putshell\PutshellDriver.zip"
 del "Shells\Trafficshell\Trafficshelldriver.zip"
