@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TopologyInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Details Name="Admin Preperations" Alias="Admin Preperations" Driver="Python Setup &amp; Teardown" SetupDuration="3" Public="false" ImageName="Admin Preperations.png" DefaultDuration="60">
+  <Details Name="Admin Preparations" Alias="Admin Preparations" Driver="Python Setup &amp; Teardown" SetupDuration="3" Public="false" ImageName="Admin Preparations.png" DefaultDuration="60">
     <Description>This blueprint helps with the University preparations steps</Description>
     <Categories />
     <Scripts>
