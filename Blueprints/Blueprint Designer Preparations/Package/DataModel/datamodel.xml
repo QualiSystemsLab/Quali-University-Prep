@@ -92,7 +92,7 @@
     <DriverDescriptor Name="Python Setup &amp; Teardown" Description="This driver is used for running Python scripts in the environment setup and teardown. To use this driver, make sure you select a suitable setup and/or teardown script." DriverType="TestShellDriver" />
   </DriverDescriptors>
   <ScriptDescriptors>
-    <ScriptDescriptor Name="Admin Setup Script" CategoryName="Hidden Commands" Alias="Setup script">
+    <ScriptDescriptor Name="Blueprint Designer Setup Script" CategoryName="Hidden Commands" Alias="Setup script">
       <ScriptInputs />
     </ScriptDescriptor>
   </ScriptDescriptors>

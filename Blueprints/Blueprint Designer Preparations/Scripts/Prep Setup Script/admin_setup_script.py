@@ -37,9 +37,9 @@ def execute():
         print e.message
 
     # get user/admin counts to create
-    admins_count = 0
-    if 'Number of Sys Admins' in inputs:
-        admins_count = int(inputs['Number of Sys Admins'])
+    # admins_count = 0
+    # if 'Number of Sys Admins' in inputs:
+    #     admins_count = int(inputs['Number of Sys Admins'])
 
     users_count = 0
     if 'Number of Users' in inputs:
@@ -89,21 +89,21 @@ def execute():
 
     # create users/admins
     groups = None
-    if admins_count > 0:
-        groups = api.GetGroupsDetails()
-        sysadmin_group = [g for g in groups.Groups if g.Name == "System Administrators"][0]
-        a = len(sysadmin_group.Users) + 1
-        added_count = 0
-        admins_created = []
-        while added_count < admins_count:
-            try:
-                api.AddNewUser('admin' + str(a), 'admin' + str(a), '', isActive=True, isAdmin=True)
-                added_count += 1
-                admins_created.append('admin' + str(a))
-            except:
-                pass
-            a += 1
-        api.WriteMessageToReservationOutput(res_id, 'Admins created: ' + ','.join(admins_created))
+    # if admins_count > 0:
+    #     groups = api.GetGroupsDetails()
+    #     sysadmin_group = [g for g in groups.Groups if g.Name == "System Administrators"][0]
+    #     a = len(sysadmin_group.Users) + 1
+    #     added_count = 0
+    #     admins_created = []
+    #     while added_count < admins_count:
+    #         try:
+    #             api.AddNewUser('admin' + str(a), 'admin' + str(a), '', isActive=True, isAdmin=True)
+    #             added_count += 1
+    #             admins_created.append('admin' + str(a))
+    #         except:
+    #             pass
+    #         a += 1
+    #     api.WriteMessageToReservationOutput(res_id, 'Admins created: ' + ','.join(admins_created))
 
     if domain_admins_count > 0:
         if groups is None:
@@ -213,12 +213,22 @@ def execute():
                     ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 3 - PUT' + postfix_rn, '3', '',
                                     chassis_name, ''),
                     ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 4 - PUT' + postfix_rn, '4', '',
+                                    chassis_name, ''),
+                    ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 3 - TG' + postfix_tg, '3', '',
+                                    chassis_name, ''),
+                    ResourceInfoDto('CS_Port', 'L2Mockswitch.GenericPort', 'Port 4 - TG' + postfix_tg, '4', '',
                                     chassis_name, '')
                 ])
                 api.AddResourcesToDomain('Test Team NY', [l2_training], True)
                 api.UpdatePhysicalConnections([
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 3', chassis_name + '/Port 3 - PUT' + postfix_rn, 10),
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 4', chassis_name + '/Port 4 - PUT' + postfix_rn, 10)
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 3',
+                                                    chassis_name + '/Port 3 - PUT' + postfix_rn, '10'),
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 4',
+                                                    chassis_name + '/Port 4 - PUT' + postfix_rn, '10'),
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 3',
+                                                    chassis_name + '/Port 3 - TG' + postfix_tg, '10'),
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 4',
+                                                    chassis_name + '/Port 4 - TG' + postfix_tg, '10')
                 ])
 
             except Exception as ex:

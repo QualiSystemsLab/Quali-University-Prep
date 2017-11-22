@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TopologyInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Details Name="Admin Preparations" Alias="Admin Preparations" Driver="Python Setup &amp; Teardown" SetupDuration="3" Public="false" ImageName="Admin Preparations.png" DefaultDuration="60">
+  <Details Name="Blueprint Designer Preparations" Alias="Blueprint Designer Preparations" Driver="Python Setup &amp; Teardown" SetupDuration="3" Public="false" ImageName="Admin Preparations.png" DefaultDuration="60">
     <Description>This blueprint helps with the University preparations steps</Description>
     <Categories />
     <Scripts>
-      <Script Name="Admin Setup Script" />
+      <Script Name="Blueprint Designer Prep Setup Script" />
     </Scripts>
     <Diagram Zoom="1" NodeSize="Medium" />
   </Details>
@@ -13,7 +13,7 @@
   </Resources>
   <Apps />
   <Inputs>
-    <GlobalInput Name="Number of Sys Admins" DefaultValue="0" Description="How many system administrators to create?" Type="Numeric" />
+    <!--GlobalInput Name="Number of Sys Admins" DefaultValue="0" Description="How many system administrators to create?" Type="Numeric" /-->
     <GlobalInput Name="Number of Domain Admins" DefaultValue="0" Description="How many domain administrators to create?" Type="Numeric"/>
     <GlobalInput Name="Number of Users" DefaultValue="0" Description="How many regular users to create?" Type="Numeric" />
   </Inputs>
