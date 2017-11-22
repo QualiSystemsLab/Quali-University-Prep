@@ -32,6 +32,7 @@ cd "Blueprints\PUT Traffic Test Blueprint\Package"
 del *.zip
 del "..\..\..\Blueprints\Blueprint Designer Preparations\Scripts\Prep Setup Script\PUT Traffic Test Blueprint.zip"
 "c:\Program Files\7-Zip\7z.exe" a "..\..\..\Blueprints\Blueprint Designer Preparations\Scripts\Prep Setup Script\PUT Traffic Test Blueprint.zip" *
+copy "..\..\..\Blueprints\Blueprint Designer Preparations\Scripts\Prep Setup Script\PUT Traffic Test Blueprint.zip" "..\PUT Traffic Test Blueprint Package.zip" /y
 cd..\..\..
 
 echo pack put blueprint instructions
