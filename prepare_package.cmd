@@ -35,11 +35,6 @@ del "..\..\..\Blueprints\Blueprint Designer Preparations\Scripts\Prep Setup Scri
 copy "..\..\..\Blueprints\Blueprint Designer Preparations\Scripts\Prep Setup Script\PUT Traffic Test Blueprint.zip" "..\PUT Traffic Test Blueprint Package.zip" /y
 cd..\..\..
 
-echo pack put blueprint instructions
-cd "Blueprints\PUT Traffic Test Blueprint\Blueprint Instructions"
-"c:\Program Files\7-Zip\7z.exe" a "..\..\..\Blueprints\Blueprint Designer Preparations\Scripts\Prep Setup Script\PUTInstructionsFiles.zip" *
-cd..\..\..
-
 echo pack prep setup script
 cd "Blueprints\Blueprint Designer Preparations\Scripts\Prep Setup Script"
 del "..\..\Package\topology scripts\Blueprint Designer Prep Setup Script.zip"
@@ -58,7 +53,6 @@ del "PUT Traffic Test Blueprint.zip"
 del putshell.zip
 del trafficshell.zip
 del l2mockswitch.zip
-del PUTInstructionsFiles.zip
 cd..\..\..\..
 del "Shells\putshell\PutshellDriver.zip"
 del "Shells\Trafficshell\Trafficshelldriver.zip"
