@@ -242,19 +242,5 @@ def execute():
 
         api.WriteMessageToReservationOutput(res_id, 'Users created: ' + ','.join(users_created))
 
-    # place instruction files
-    instructions_exists = os.path.isdir("C:\Program Files (x86)\QualiSystems\CloudShell\Portal\PUTInstructionsFiles")
-    if not instructions_exists:
-        tempdir = tempfile.gettempdir()
-
-        with zipfile.ZipFile(os.path.dirname(__file__), "r") as z:
-            z.extractall(tempdir)
-
-        # extract the inner zip to site-packages
-        with zipfile.ZipFile((tempdir + "\\PUTInstructionsFiles.zip"), "r") as z:
-            z.extractall("C:\Program Files (x86)\QualiSystems\CloudShell\Portal")
-
-
-
-    print 'done'
+    print 'Process complete'
 
