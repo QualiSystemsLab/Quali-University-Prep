@@ -70,10 +70,10 @@ def execute():
             api.AddGroupsToDomain(domainName=domain, groupNames=['Users Group'])
             domains_created.append(domain)
             # assign networking service category to the new domains
-            import_package(connectivity, domain, tempdir + "\\Networking Service Category.zip")
+            #import_package(connectivity, domain, tempdir + "\\Networking Service Category.zip")
             api.AddGroupsToDomain(domainName=domain, groupNames=['Domain Admins'])
-            if domain == 'Test Team NY':
-                import_package(connectivity, domain, tempdir + "\\Apps for testing service category.zip")
+            #if domain == 'Test Team NY':
+            #    import_package(connectivity, domain, tempdir + "\\Apps for testing service category.zip")
         except CloudShellAPIError as ex:
             pass  # probably domain exists already
     api.WriteMessageToReservationOutput(res_id, 'Domains created: ' + ','.join(domains_created))
