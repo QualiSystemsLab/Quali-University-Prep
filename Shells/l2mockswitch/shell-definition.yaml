@@ -29,13 +29,13 @@ node_types:
         properties:
           enable_auto_discovery:
             type: boolean
-            default: false
+            default: true
           auto_discovery_description:
             type: string
-            default: Describe the auto discovery
+            default: Builds the structure of the L2 mock switch
           inventory_description:
             type: string
-            default: Describe the resource shell template
+            default: This is a Mock L2 shell to use for training purposes.
     artifacts:
       icon:
         file: shell-icon.png
