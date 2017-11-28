@@ -177,10 +177,10 @@ def execute():
                 ])
                 api.AddResourcesToDomain('Test Team NY', [patch_name], True)
                 api.UpdatePhysicalConnections([
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 1', patch_name + '/Port 1 - PUT' + postfix_rn, 10),
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 2', patch_name + '/Port 2 - PUT' + postfix_rn, 10),
-                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 1', patch_name + '/Port 1 - TG' + postfix_tg, 10),
-                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 2', patch_name + '/Port 2 - TG' + postfix_tg, 10)
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 1', patch_name + '/Port 1 - PUT' + postfix_rn, '10'),
+                    PhysicalConnectionUpdateRequest(resource_name + '/Port 2', patch_name + '/Port 2 - PUT' + postfix_rn, '10'),
+                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 1', patch_name + '/Port 1 - TG' + postfix_tg, '10'),
+                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 2', patch_name + '/Port 2 - TG' + postfix_tg, '10')
                 ])
 
                 # create L2 mock switch if needed
@@ -225,9 +225,9 @@ def execute():
                                                     chassis_name + '/Port 3 - PUT' + postfix_rn, '10'),
                     PhysicalConnectionUpdateRequest(resource_name + '/Port 4',
                                                     chassis_name + '/Port 4 - PUT' + postfix_rn, '10'),
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 3',
+                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 3',
                                                     chassis_name + '/Port 3 - TG' + postfix_tg, '10'),
-                    PhysicalConnectionUpdateRequest(resource_name + '/Port 4',
+                    PhysicalConnectionUpdateRequest(traffic_name + '/Port 4',
                                                     chassis_name + '/Port 4 - TG' + postfix_tg, '10')
                 ])
 
