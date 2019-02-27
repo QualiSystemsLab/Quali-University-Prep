@@ -23,7 +23,7 @@ The driver has been verified with the following devices and software versions:
 ### Installation
 
 Follow the instructions in the link below for installation:
-http://help.quali.com/Online%20Help/7.0.0.0/Portal/Content/Admn/Cnct-Ctrl-L1-Swch.htm
+http://help.quali.com/Online%20Help/9.1/Portal/Content/Admn/Cnct-Ctrl-L1-Swch.htm
 
 In step 7 at the above guide, you will need to copy only one exe file, and instead of the runtimeConfig.xml file please copy the l1mock_runtime_configuration.json file.
 
